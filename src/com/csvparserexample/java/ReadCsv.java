@@ -4,17 +4,20 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class ReadCsv {
-	public void readCsv (){
-		String csvFileToRead = "csvFiles/healthlinkbc_Pharmacies.csv";
-		BufferedReader br = null;
+	public void readCsv () throws IOException{
+//		String csvFileToRead = "csvFiles/healthlinkbc_Pharmacies.csv";
+		DataRetriever dr = new DataRetriever();
+		BufferedReader br = dr.fetchCSV();
+//		BufferedReader br = null;
 		String line = "";
 		String splitBy = "	";
 		
 		try {
 			///Sets up bufferedReader for csv file
-			br = new BufferedReader(new FileReader(csvFileToRead));
+//			br = new BufferedReader(new FileReader(csvFileToRead));
 			///iterates through csv file line per line
 		while ((line = br.readLine()) != null){
 			
